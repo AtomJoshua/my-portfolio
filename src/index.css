@@ -1,0 +1,5 @@
+@import "tailwindcss";
+html {
+  @apply bg-gradient-to-l from-purple-900 via-gray-900 to-purple-700 text-gray-100 scroll-smooth;
+}
+
