@@ -6,7 +6,8 @@ import GMPowerImg from "../assets/gmpower.png";
 
 const projects = [
   {
-    title: "GMPower — Prepaid Energy & Webhook Gateway",
+    title: "GMPower",
+    subtitle: "Smart Energy Metering & Billing System",
     category: "Full-Stack & Hardware APIs",
     description: "Integrated automated payment webhooks (Paystack) with smart energy metering hardware APIs to deliver instant token generation and fail-safe retry mechanisms.",
     image: GMPowerImg,
