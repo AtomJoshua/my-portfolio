@@ -1,99 +1,87 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import SectionPreview from "../components/SectionPreview";
-import ProfilePic from "../assets/profile2.jpg"
+import ProfilePic from "../assets/profile2.jpg";
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-4 pt-24 space-y-16">
-      {/* Hero with Animated Image */}
+    <div className="max-w-6xl mx-auto px-4 pt-28 space-y-16">
+      {/* Hero */}
       <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 items-center gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 items-center gap-10"
       >
-        {/* Text */}
         <div className="text-center md:text-left">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-purple-400">
-            Hi, I’m Atom 👋
+          <span className="text-purple-400 text-sm font-semibold uppercase tracking-widest">
+            Full-Stack Developer & Systems Specialist
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-2 leading-tight">
+            Hi, I’m <span className="text-purple-400">Atom Joshua</span> 👋
           </h1>
-          <p className="mt-4 text-lg text-gray-300">
-            A passionate web developer crafting modern, responsive websites.
+          <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+            I build responsive web platforms and manage resilient system infrastructure. 
+            From Next.js and TypeScript backends to Linux server environments and enterprise network switching.
           </p>
+
+          <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+            <Link
+              to="/projects"
+              className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-medium transition shadow-lg shadow-purple-600/30"
+            >
+              Explore Projects
+            </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium border border-white/10 transition"
+            >
+              Get in Touch
+            </Link>
+          </div>
         </div>
 
-        {/* Animated Image */}
         <motion.div
-          initial={{ opacity: 0, x: 50, scale: 0.8 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="flex justify-center md:justify-end"
         >
           <img
             src={ProfilePic}
-            alt="My Picture"
-            className="rounded-2xl shadow-lg h-auto w-64"
+            alt="Atom Enoch Joshua"
+            className="rounded-2xl shadow-2xl h-auto w-72 object-cover border border-purple-500/20"
           />
         </motion.div>
       </motion.section>
 
-      {/* Section Previews */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        viewport={{ once: true }}
-      >
+      {/* Previews */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
         <SectionPreview
           title="About Me"
-          description="Learn more about my background, skills, and what drives my passion for development."
+          description="My background, graduate education in Computer Technology, and how I bridge systems and software."
           link="/about"
-          bgClass="bg-gradient-to-r from-purple-900 to-purple-600"
+          bgClass="bg-gradient-to-br from-purple-900/60 to-purple-800/20 border border-purple-500/20"
         />
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
         <SectionPreview
-          title="Skills"
-          description="Explore the tools and technologies I work with to bring projects to life."
+          title="Technical Skills"
+          description="Core stack across Web Development, Linux Systems, Network Infrastructure, and Databases."
           link="/skills"
-          bgClass="bg-gradient-to-r from-blue-900 to-blue-700"
+          bgClass="bg-gradient-to-br from-blue-950/60 to-indigo-900/20 border border-blue-500/20"
         />
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        viewport={{ once: true }}
-      >
         <SectionPreview
-          title="Projects"
-          description="A showcase of my favorite projects."
+          title="Featured Projects"
+          description="Explore production platforms, automated gateways, and server infrastructure deployments."
           link="/projects"
-          bgClass="bg-gradient-to-r from-green-800 to-green-500"
+          bgClass="bg-gradient-to-br from-emerald-950/60 to-teal-900/20 border border-emerald-500/20"
         />
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
         <SectionPreview
-          title="Contact"
-          description="Want to collaborate or have a project in mind? Let's talk!"
+          title="Contact & Collab"
+          description="Reach out directly for engineering roles, technical consulting, or development contracts."
           link="/contact"
-          bgClass="bg-gradient-to-r from-pink-900 to-pink-800"
+          bgClass="bg-gradient-to-br from-fuchsia-950/60 to-pink-900/20 border border-fuchsia-500/20"
         />
-      </motion.section>
+      </div>
     </div>
   );
 }

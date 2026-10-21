@@ -13,25 +13,25 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-purple-700/30">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
+    <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-purple-500/20">
+      <div className="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
+        {/* Brand Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold text-purple-400 hover:text-purple-300 transition"
+          className="text-2xl font-bold tracking-tight text-white hover:text-purple-400 transition"
         >
-          MyPortfolio
+          Atom<span className="text-purple-500">.</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-8 text-sm font-medium">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
               className={({ isActive }) =>
-                `hover:text-purple-300 transition ${
-                  isActive ? "text-purple-400" : "text-gray-200"
+                `transition hover:text-purple-400 ${
+                  isActive ? "text-purple-400 font-semibold" : "text-gray-300"
                 }`
               }
             >
@@ -40,46 +40,45 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Burger Button */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden relative w-8 h-6 focus:outline-none"
+          aria-label="Toggle Navigation Menu"
+          className="md:hidden relative w-7 h-5 focus:outline-none"
         >
           <span
-            className={`block absolute h-0.5 w-8 bg-white transform transition duration-300 ease-in-out ${
-              menuOpen ? "rotate-45 top-3" : "rotate-0 top-0"
+            className={`block absolute h-0.5 w-7 bg-white transform transition duration-300 ease-in-out ${
+              menuOpen ? "rotate-45 top-2.5" : "top-0"
             }`}
-          ></span>
+          />
           <span
-            className={`block absolute h-0.5 w-8 bg-white transform transition duration-300 ease-in-out ${
-              menuOpen ? "opacity-0" : "opacity-100 top-3"
+            className={`block absolute h-0.5 w-7 bg-white transform transition duration-300 ease-in-out ${
+              menuOpen ? "opacity-0" : "top-2"
             }`}
-          ></span>
+          />
           <span
-            className={`block absolute h-0.5 w-8 bg-white transform transition duration-300 ease-in-out ${
-              menuOpen ? "-rotate-45 top-3" : "rotate-0 top-6"
+            className={`block absolute h-0.5 w-7 bg-white transform transition duration-300 ease-in-out ${
+              menuOpen ? "-rotate-45 top-2.5" : "top-4"
             }`}
-          ></span>
+          />
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown with Animation */}
+      {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden bg-black/90 backdrop-blur-md border-t border-purple-700/30 transform transition-all duration-300 ease-in-out ${
-          menuOpen
-            ? "opacity-100 translate-y-0 max-h-60"
-            : "opacity-0 -translate-y-4 max-h-0 overflow-hidden"
+        className={`md:hidden bg-black/95 backdrop-blur-lg border-b border-purple-900/40 transition-all duration-300 ease-in-out overflow-hidden ${
+          menuOpen ? "max-h-64 py-4 opacity-100" : "max-h-0 py-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col items-center space-y-4 py-4">
+        <div className="flex flex-col items-center space-y-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `hover:text-purple-300 transition ${
-                  isActive ? "text-purple-400" : "text-gray-200"
+                `text-base transition hover:text-purple-400 ${
+                  isActive ? "text-purple-400 font-semibold" : "text-gray-300"
                 }`
               }
             >
